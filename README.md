@@ -15,7 +15,7 @@ This script utilize 4 difient classifier
 Pipline flow:
 1. Read tsv file
 2. analyze choosen product
-3. filter out toxic comment
+3. filter out toxic comment by the toxic classifier
 4. Run the remaining comment through above classifier after preprocessing, there is a function to handle text(>512 length) to do classifier
 5. Utilize LDA and TF-IDF to extract most talk about keywords
 6. The stars classifier was modify and output weighted satisfaction score base on the outputed stars from the classifier, and presented as a trend
