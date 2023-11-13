@@ -331,7 +331,8 @@ def SingleProductOverallAnalysis(product):
     # Printing the extracted topics and keywords
     
     for i, topic_keywords in enumerate(keywords_per_topic):
-        print(f"Topic {i+1}:")
+        #print(f"Topic {i+1}:")
+        print("Top 5 mentioned Keywords")
         print(", ".join(topic_keywords))
         #bottom_text += f"{topic_keywords}   "
         print()
@@ -414,7 +415,7 @@ def main():
     #input = input()
     inputProduct = 'Sleep Innovations Shiloh Memory Foam Mattress'
     inputProductParent ='880806683'
-    print(inputProductParent)
+    print(inputProduct)
     SingleProductOverallAnalysis(inputProductParent)
 
     
