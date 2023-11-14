@@ -17,7 +17,7 @@ import warnings
 
 
 #Read less row to run faster
-debugMode = True
+debugMode = False
 
 #File Path it could be any tsv file
 #File Path it could be any tsv file, i choose the smallest file for fast loading
@@ -271,7 +271,7 @@ def SingleProductOverallAnalysis(product):
     cnt_all = cnt_pos+cnt_neg
     percantage_POS = cnt_pos/(cnt_all)
     percantage_NEG = cnt_neg/(cnt_all)
-    print("Total comment:",cnt_all,"\nPOS:",percantage_POS , "\nNEG:",percantage_NEG)
+    #print("Total comment:",cnt_all,"\nPOS:",percantage_POS , "\nNEG:",percantage_NEG)
 
     
     pie_content =[int(cnt_pos),int(cnt_neg)]
@@ -372,6 +372,7 @@ def SingleProductOverallAnalysis(product):
             return index
     with warnings.catch_warnings():
         warnings.filterwarnings('ignore', r'Polyfit may be poorly conditioned')
+        warnings.filterwarnings('ignore', r'set_ticklabels\(\) should only be used with a fixed number of ticks')
         sns.regplot(
             x=date_numeric, 
             y=graph_scores, 
