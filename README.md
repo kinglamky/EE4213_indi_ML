@@ -3,6 +3,7 @@ Set the correct path for the Amazon tsv file, this script is writen to process t
 'amazon_reviews_us_Furniture_v1_00.tsv' was choosen for its small size and only read the first 100000 line of data (line68 to change the settign) for faster loading time
 
 you can change the inputProductParent or inputProduct name to change the searched product, and change the SingleProductOverallAnalysis(text) to wanted item.
+Also, could change the number of keyTopic listed
 
 
 
