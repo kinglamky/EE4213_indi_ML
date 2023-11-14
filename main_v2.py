@@ -30,6 +30,11 @@ tsvFileList = ['amazon_reviews_us_Mobile_Electronics_v1_00.tsv',
         ]
 FilePath = "AmazonReviewDataset/"+tsvFileList[4]
 
+
+inputProduct = 'Sleep Innovations Shiloh Memory Foam Mattress'
+inputProductParent ='880806683'
+Keyword_num = 10
+
 # initial value
 model_path_star = "LiYuan/amazon-review-sentiment-analysis"
 model_path_hatespeech = "martin-ha/toxic-comment-model"
@@ -323,7 +328,7 @@ def SingleProductOverallAnalysis(product):
     keywords_per_topic = []
 
     for topic in lda_model.get_topics():
-        top_keywords_idx = topic.argsort()[-5:][::-1]  # Get top 5 keywords for each topic
+        top_keywords_idx = topic.argsort()[-Keyword_num:][::-1]  # Get top 5 keywords for each topic
         top_keywords = [sorted_feature_names[idx] for idx in top_keywords_idx]
         keywords_per_topic.append(top_keywords)
 
@@ -413,10 +418,9 @@ def main():
     #print("*** Testing Return ***")
     print("Input:")
     #input = input()
-    inputProduct = 'Sleep Innovations Shiloh Memory Foam Mattress'
-    inputProductParent ='880806683'
+    
     print(inputProduct)
-    SingleProductOverallAnalysis(inputProductParent)
+    SingleProductOverallAnalysis(inputProduct)
 
     
 
