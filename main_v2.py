@@ -17,7 +17,7 @@ import warnings
 
 
 #Read less row to run faster
-debugMode = False
+debugMode = True
 
 #File Path it could be any tsv file
 #File Path it could be any tsv file, i choose the smallest file for fast loading
@@ -202,9 +202,6 @@ def SingleProductOverallAnalysis(product):
         
         if review["product_title"] == product or review["product_parent"] == product:
 
-            
-
-            
 
         #Hate Speech Ana, dont proccess the review if the review is hate speech
             if AnalyzeHateSpeech(review["review_body"])[0]["label"] == 'non-toxic':
@@ -213,7 +210,7 @@ def SingleProductOverallAnalysis(product):
                 
 
 
-                # Text preprocessing
+                # Text preprocessing for keywords
                 tokenizer = RegexpTokenizer(r'\w+')
                 words = tokenizer.tokenize(review["review_body"].lower().replace('\n', ' '))
                 pos_words = pos_tag(words)
@@ -300,6 +297,8 @@ def SingleProductOverallAnalysis(product):
     # Add labels and title
     bar.set_xlabel('Label')
     bar.set_ylabel('Score')
+    bar.set_xticklabels(bar.get_xticklabels(), rotation = 30, ha = 'right')
+    #bar.set_xticks(rotation=30)
     bar.set_title('Emo Distribution Chart')
 
     
@@ -366,7 +365,7 @@ def SingleProductOverallAnalysis(product):
     date_numeric = list(range(len(graph_dates)))
     
     def index_formula(number):
-        index = int(number / 10)
+        index = int(number / 20)
         if index < 1:
             return 1
         else:
